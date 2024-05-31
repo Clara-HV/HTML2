@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Comisiones</title>
+</style>
+</head>
+<body>
+    <div style="color: rgb(179, 50, 184);">
+<h2>Calculadora de Comisiones de Vendedor</h2>
+<form id="calculator">
+    <div style="color: rgb(241, 25, 25);">
+  <label for="baseSalary">Cantidad de Sueldo Base:</label><br>
+  <input type="number" id="baseSalary" name="baseSalary" min="0" required><br><br></div>
+  <div style="color: rgb(60, 175, 140);">
+  <label for="sale1">Cantidad de venta 1:</label><br>
+  <input type="number" id="sale1" name="sale1" min="0" required><br><br> </div>
+  <div style="color: rgb(166, 190, 29);">
+  <label for="sale2">Cantidad de venta 2:</label><br>
+  <input type="number" id="sale2" name="sale2" min="0" required><br><br></div>
+  <div style="color: rgb(230, 181, 21);">
+  <label for="sale3">Venta 3:</label><br>
+  <input type="number" id="sale3" name="sale3" min="0" required><br><br></div>
+  
+  <button type="button" onclick="calculate()">Calcular</button>
+</form>
+
+<div id="result" style="display:none;">
+  <h3>Resultados:</h3>
+  <p>Comisión Total por ventas: <span id="commission"></span></p>
+  <p>Sueldo Total: <span id="totalSalary"></span></p>
+</div>
+
+<script>
+function calculate() {
+  var baseSalary = parseFloat(document.getElementById('baseSalary').value);
+  var sale1 = parseFloat(document.getElementById('sale1').value);
+  var sale2 = parseFloat(document.getElementById('sale2').value);
+  var sale3 = parseFloat(document.getElementById('sale3').value);
+  
+  // Validación de valores positivos
+  if (baseSalary < 0 || sale1 < 0 || sale2 < 0 || sale3 < 0) {
+    alert("Por favor ingrese valores positivos para sueldo base y ventas.");
+    return;
+  }
+  
+  // Validación de que se ingresaron números
+  if (isNaN(baseSalary) || isNaN(sale1) || isNaN(sale2) || isNaN(sale3)) {
+    alert("Por favor ingrese valores numéricos válidos.");
+    return;
+  }
+  
+  // Cálculo de comisión y salario total
+  var totalSales = sale1 + sale2 + sale3;
+  var commission = totalSales * 0.1; // 10% de las ventas totales
+  var totalSalary = baseSalary + commission;
+  
+  document.getElementById('commission').textContent = '$' + commission.toFixed(2);
+  document.getElementById('totalSalary').textContent = '$' + totalSalary.toFixed(2);
+  
+  document.getElementById('result').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
+
