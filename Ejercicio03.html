@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Descuento</title>
+</head>
+<body>
+    <div style="color: rgb(61, 190, 49);">
+<h2>Calculadora de Descuento</h2> <div>
+    <div style="color: rgb(177, 33, 134);">
+<form id="discountCalculator">
+  <label for="totalAmount">Cantidad total de la Compra:</label><br>
+  <input type="number" id="totalAmount" name="totalAmount" min="0" required><br><br>
+  
+  <button type="button" onclick="calculateDiscount()">Calcular Descuento</button>
+</form>
+
+<div id="result" style="display:none;">
+  <h3>Resultado:</h3>
+  <p>Monto a Pagar con Descuento: <span id="finalAmount"></span></p>
+</div>
+
+<script>
+function calculateDiscount() {
+  var totalAmount = parseFloat(document.getElementById('totalAmount').value);
+  
+  // Validación de valores positivos
+  if (totalAmount < 0) {
+    alert("Por favor ingrese un valor positivo para el total de la compra.");
+    return;
+  }
+  
+  // Validación de que se ingresó un número
+  if (isNaN(totalAmount)) {
+    alert("Por favor ingrese un valor numérico valido.");
+    return;
+  }
+  
+  // Cálculo del descuento y monto final
+  var discount = totalAmount * 0.15; // 15% del total
+  var finalAmount = totalAmount - discount;
+  
+  document.getElementById('finalAmount').textContent = '$' + finalAmount.toFixed(2);
+  
+  document.getElementById('result').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
