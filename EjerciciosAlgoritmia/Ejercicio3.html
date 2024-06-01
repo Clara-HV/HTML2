@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contar Letras</title>
+</head>
+<body>
+  <h1>Contar Letras</h1>
+  <form id="palabrasForm">
+    <label for="palabrasInput">Ingresa las palabras separadas por comas:</label><br>
+    <input type="text" id="palabrasInput" name="palabrasInput" required><br><br>
+    
+    <button type="button" onclick="contarLetras()">Contar Letras</button>
+    <button type="button" onclick="borrarPalabras()">Borrar Palabras</button>
+  </form>
+
+  <div id="resultado"></div>
+
+  <script>
+    function contarLetras() {
+      // Obtener las palabras ingresadas por el usuario
+      var palabras = document.getElementById("palabrasInput").value.trim();
+
+      // Separar las palabras por comas y convertirlas en un array
+      var palabrasArray = palabras.split(",");
+
+      // Inicializar variables para almacenar la palabra con más caracteres únicos y su cantidad
+      var palabraMasUnica = "";
+      var maxCaracteresUnicos = 0;
+
+      // Iterar sobre cada palabra y contar sus caracteres únicos
+      palabrasArray.forEach(function(palabra) {
+        var caracteresUnicos = new Set(palabra.toUpperCase()).size;
+        if (caracteresUnicos > maxCaracteresUnicos) {
+          maxCaracteresUnicos = caracteresUnicos;
+          palabraMasUnica = palabra;
+        }
+      });
+
+      // Mostrar el resultado
+      document.getElementById("resultado").innerHTML = "La palabra con más caracteres únicos es: " + palabraMasUnica + " (" + maxCaracteresUnicos + ")";
+    }
+
+    function borrarPalabras() {
+      // Limpiar el campo de entrada de palabras
+      document.getElementById("palabrasInput").value = "";
+
+      // Limpiar el área de resultado
+      document.getElementById("resultado").innerHTML = "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invertir Palabras</title>
+</head>
+<body>
+  <h1>Invertir Palabras</h1>
+  <form id="palabrasForm">
+    <label for="palabrasInput">Ingresa las palabras separadas por espacios:</label><br>
+    <textarea id="palabrasInput" name="palabrasInput" rows="4" cols="50" required></textarea><br><br>
+    
+    <button type="button" onclick="invertirPalabras()">Invertir Palabras</button>
+    <button type="button" onclick="borrarPalabras()">Borrar</button>
+  </form>
+
+  <div id="resultado"></div>
+
+  <script>
+    function invertirPalabras() {
+      // Obtener las palabras ingresadas por el usuario
+      var palabras = document.getElementById("palabrasInput").value.trim();
+
+      // Separar las palabras por espacios y convertirlas en un array
+      var palabrasArray = palabras.split(" ");
+
+      // Invertir el orden del array de palabras
+      palabrasArray.reverse();
+
+      // Unir las palabras invertidas en una cadena nuevamente
+      var palabrasInvertidas = palabrasArray.join(" ");
+
+      // Mostrar el resultado
+      document.getElementById("resultado").innerHTML = "Palabras invertidas: " + palabrasInvertidas;
+    }
+
+    function borrarPalabras() {
+      // Limpiar el área de entrada de palabras
+      document.getElementById("palabrasInput").value = "";
+
+      // Limpiar el área de resultado
+      document.getElementById("resultado").innerHTML = "";
+    }
+  </script>
+</body>
+</html>
