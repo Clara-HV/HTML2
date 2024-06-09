@@ -18,17 +18,17 @@
 
   <script>
     function calcularEdad() {
-      // Obtener la fecha de nacimiento del campo de entrada
+      
       var fechaNacimiento = new Date(document.getElementById("fechaNacimiento").value);
       var fechaActual = new Date();
 
-      // Calcular la diferencia de tiempo en milisegundos entre la fecha actual y la fecha de nacimiento
+      
       var diferenciaTiempo = fechaActual.getTime() - fechaNacimiento.getTime();
 
-      // Calcular la edad en base a la diferencia de tiempo
+     
       var edad = Math.floor(diferenciaTiempo / (1000 * 60 * 60 * 24 * 365.25)); // Aproximadamente 365.25 días en un año para tener en cuenta los años bisiestos
 
-      // Mostrar el resultado
+    
       document.getElementById("resultado").innerHTML = "Tu edad es: " + edad + " años.";
     }
   </script>

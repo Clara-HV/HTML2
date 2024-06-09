@@ -25,20 +25,18 @@
 function calculateDiscount() {
   var totalAmount = parseFloat(document.getElementById('totalAmount').value);
   
-  // Validación de valores positivos
+  
   if (totalAmount < 0) {
     alert("Por favor ingrese un valor positivo para el total de la compra.");
     return;
   }
   
-  // Validación de que se ingresó un número
   if (isNaN(totalAmount)) {
     alert("Por favor ingrese un valor numérico valido.");
     return;
   }
   
-  // Cálculo del descuento y monto final
-  var discount = totalAmount * 0.15; // 15% del total
+  var discount = totalAmount * 0.15; 
   var finalAmount = totalAmount - discount;
   
   document.getElementById('finalAmount').textContent = '$' + finalAmount.toFixed(2);

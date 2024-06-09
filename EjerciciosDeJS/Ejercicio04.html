@@ -32,14 +32,14 @@
 
   <script>
     function calcularCalificacion() {
-      // Obtener los valores de los campos
+      
       var parcial1 = parseFloat(document.getElementById("parcial1").value);
       var parcial2 = parseFloat(document.getElementById("parcial2").value);
       var parcial3 = parseFloat(document.getElementById("parcial3").value);
       var examenFinal = parseFloat(document.getElementById("examenFinal").value);
       var trabajoFinal = parseFloat(document.getElementById("trabajoFinal").value);
 
-      // Validar que las calificaciones estén dentro del rango permitido
+     
       if (parcial1 < 0 || parcial1 > 100 || isNaN(parcial1) ||
           parcial2 < 0 || parcial2 > 100 || isNaN(parcial2) ||
           parcial3 < 0 || parcial3 > 100 || isNaN(parcial3) ||
@@ -49,12 +49,12 @@
         return;
       }
 
-      // Calcular la calificación final con los nuevos porcentajes
+     
       var calificacionFinal = (parcial1 + parcial2 + parcial3) / 3 * 0.55 +
                               examenFinal * 0.3 +
                               trabajoFinal * 0.15;
 
-      // Mostrar el resultado
+     
       document.getElementById("resultado").innerHTML = "Tu calificación final es: " + calificacionFinal.toFixed(2);
     }
   </script>

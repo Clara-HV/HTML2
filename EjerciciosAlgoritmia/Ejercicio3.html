@@ -19,17 +19,12 @@
 
   <script>
     function contarLetras() {
-      // Obtener las palabras ingresadas por el usuario
+      
       var palabras = document.getElementById("palabrasInput").value.trim();
-
-      // Separar las palabras por comas y convertirlas en un array
       var palabrasArray = palabras.split(",");
-
-      // Inicializar variables para almacenar la palabra con más caracteres únicos y su cantidad
       var palabraMasUnica = "";
       var maxCaracteresUnicos = 0;
 
-      // Iterar sobre cada palabra y contar sus caracteres únicos
       palabrasArray.forEach(function(palabra) {
         var caracteresUnicos = new Set(palabra.toUpperCase()).size;
         if (caracteresUnicos > maxCaracteresUnicos) {
@@ -38,15 +33,12 @@
         }
       });
 
-      // Mostrar el resultado
       document.getElementById("resultado").innerHTML = "La palabra con más caracteres únicos es: " + palabraMasUnica + " (" + maxCaracteresUnicos + ")";
     }
 
     function borrarPalabras() {
-      // Limpiar el campo de entrada de palabras
+     
       document.getElementById("palabrasInput").value = "";
-
-      // Limpiar el área de resultado
       document.getElementById("resultado").innerHTML = "";
     }
   </script>

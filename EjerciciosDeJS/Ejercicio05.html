@@ -26,23 +26,23 @@
     
     function calcularPorcentaje() {
         
-      // Obtener los valores de los campos
+    
       var numHombres = parseInt(document.getElementById("numHombres").value);
       var numMujeres = parseInt(document.getElementById("numMujeres").value);
            
-      // Validar que los valores sean números válidos
+     
       if (isNaN(numHombres) || isNaN(numMujeres)) {
         alert("Por favor ingrese números válidos para la cantidad de hombres y mujeres.");
         return;
         
       }
       <div style="color: rgb(0, 0, 0);"></div>
-      // Calcular el total de estudiantes y los porcentajes
+    
       var totalEstudiantes = numHombres + numMujeres;
       var porcentajeHombres = (numHombres / totalEstudiantes) * 100;
       var porcentajeMujeres = (numMujeres / totalEstudiantes) * 100;
 
-      // Mostrar el resultado
+   
       
       document.getElementById("resultado").innerHTML = "Porcentaje de Hombres: " + porcentajeHombres.toFixed(2) + "%<br>" +
                                                     "Porcentaje de Mujeres: " + porcentajeMujeres.toFixed(2) + "%";
